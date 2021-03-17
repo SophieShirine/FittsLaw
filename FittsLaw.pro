@@ -10,10 +10,10 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainView.cpp
+    mainview.cpp
 
 HEADERS += \
-    mainView.h
+    mainview.h
 
 FORMS += \
     mainView.ui

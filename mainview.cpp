@@ -1,4 +1,4 @@
-#include "mainView.h"
+#include "mainview.h"
 #include "ui_mainView.h"
 
 /*
