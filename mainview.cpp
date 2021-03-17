@@ -8,14 +8,16 @@
 
 MainWiew::MainWiew(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , mainUi(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    mainUi->setupUi(this);
+    experienceView = new ExperienceView(this);
 
+    QObject::connect(mainUi->pushButton,SIGNAL(clicked()),experienceView,SLOT(show()));
 }
 
 MainWiew::~MainWiew()
 {
-    delete ui;
+    delete mainUi;
 }
 

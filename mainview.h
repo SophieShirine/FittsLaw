@@ -2,10 +2,9 @@
 #define MAINVIEW_H
 
 #include <QMainWindow>
+#include "experienceview.h"
 
-QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
 
 class MainWiew : public QMainWindow
 {
@@ -16,7 +15,8 @@ public:
     ~MainWiew();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *mainUi;
+    ExperienceView *experienceView;
     //AJOUTER ICI LES DEUX AUTRES FENETRES
     //AJOUT LE CONTROLLEUR
     //AJOUT DU MODELE
