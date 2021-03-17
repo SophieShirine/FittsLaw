@@ -2,6 +2,7 @@
 #include "ui_experienceview.h"
 
 #include <iostream>
+#include "utils.h"
 
 ExperienceView::ExperienceView(QWidget *parent) :
     QWidget(parent),

@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     experienceview.cpp \
     main.cpp \
-    mainview.cpp
+    mainview.cpp \
+    utils.cpp
 
 HEADERS += \
     experienceview.h \
-    mainview.h
+    mainview.h \
+    utils.h
 
 FORMS += \
     experienceview.ui \
