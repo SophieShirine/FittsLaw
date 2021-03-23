@@ -13,7 +13,7 @@ MainWiew::MainWiew(QWidget *parent)
     mainUi->setupUi(this);
     experienceView = new ExperienceView(this);
 
-    QObject::connect(mainUi->pushButton,SIGNAL(clicked()),experienceView,SLOT(show()));
+    QObject::connect(mainUi->pushButton,SIGNAL(clicked()),experienceView,SLOT(showExperience()));
 }
 
 MainWiew::~MainWiew()
