@@ -10,12 +10,16 @@ CONFIG += c++11
 
 SOURCES += \
     experienceview.cpp \
+    fittscontroller.cpp \
+    fittsmodel.cpp \
     main.cpp \
     mainview.cpp \
     resultsview.cpp
 
 HEADERS += \
     experienceview.h \
+    fittscontroller.h \
+    fittsmodel.h \
     mainview.h \
     resultsview.h
 
