@@ -16,9 +16,14 @@ ResultsView::ResultsView(QWidget *parent) :
     fadeInAnimation->setStartValue( 0.0 );
     fadeInAnimation->setEndValue( 1.0 );
 
+
+    //QObject::connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(appearing()));
+
 }
 
 void ResultsView::appearing(){
+
+
     fadeInAnimation->start();
 }
 
