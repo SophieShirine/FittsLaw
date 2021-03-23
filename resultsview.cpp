@@ -11,9 +11,11 @@ ResultsView::ResultsView(QWidget *parent) :
     setWindowOpacity(0.0);
 
     fadeInAnimation = new QPropertyAnimation( this, "windowOpacity" );
-    fadeInAnimation->setDuration( 500 );
+    fadeInAnimation->setDuration( 300 );
     fadeInAnimation->setStartValue( 0.0 );
     fadeInAnimation->setEndValue( 1.0 );
+
+    QObject::connect(ui->closeButton,SIGNAL(clicked()),this,SLOT(close()));
 
 
 }

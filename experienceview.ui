@@ -87,7 +87,20 @@
     </rect>
    </property>
    <property name="text">
-    <string>I am disappearing</string>
+    <string>RESULTATS</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>249</x>
+     <y>260</y>
+     <width>131</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Retour au menu</string>
    </property>
   </widget>
  </widget>

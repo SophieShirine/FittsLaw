@@ -11,6 +11,7 @@ ExperienceView::ExperienceView(QWidget *parent) :
     resultsView = new ResultsView;
 
     QObject::connect(ui->pushButton,SIGNAL(clicked()),this->resultsView,SLOT(appearing()));
+    QObject::connect(ui->closeButton,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 void ExperienceView::showExperience(){
