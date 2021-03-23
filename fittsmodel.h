@@ -2,6 +2,7 @@
 #define FITTSMODEL_H
 #include <QPoint>
 #include <QList>
+#include <QMainWindow>
 
 class ExperienceView;
 class MainView;

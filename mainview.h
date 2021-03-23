@@ -3,6 +3,11 @@
 
 #include <QMainWindow>
 #include "experienceview.h"
+#include "fittscontroller.h"
+#include "fittsmodel.h"
+
+class FittsModel;
+class FittsController;
 
 namespace Ui { class MainWindow; }
 
@@ -14,10 +19,17 @@ public:
     MainWiew(QWidget *parent = nullptr);
     ~MainWiew();
 
+public slots:
+    void updateAValueLabel();
+    void updateBValueLabel();
+    void updateNbTargetLabel();
+    void updateMinSizeLabel();
+    void updateMaxSizeLabel();
+
 private:
-    Ui::MainWindow *mainUi;
+    Ui::MainWindow *ui;
     ExperienceView *experienceView;
-    //AJOUT LE CONTROLLEUR
-    //AJOUT DU MODELE
+    FittsController *controller;
+    FittsModel *model;
 };
 #endif

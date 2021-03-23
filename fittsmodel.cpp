@@ -2,5 +2,4 @@
 
 FittsModel::FittsModel()
 {
-
 }
