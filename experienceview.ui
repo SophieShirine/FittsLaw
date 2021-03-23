@@ -90,7 +90,7 @@
     <string>RESULTATS</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="closeButton">
+  <widget class="QPushButton" name="leaveBtn">
    <property name="geometry">
     <rect>
      <x>249</x>

@@ -15,7 +15,7 @@ ResultsView::ResultsView(QWidget *parent) :
     fadeInAnimation->setStartValue( 0.0 );
     fadeInAnimation->setEndValue( 1.0 );
 
-    QObject::connect(ui->closeButton,SIGNAL(clicked()),this,SLOT(close()));
+    QObject::connect(ui->resultLeaveBtn,SIGNAL(clicked()),this,SLOT(close()));
 
 
 }
