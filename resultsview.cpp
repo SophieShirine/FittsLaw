@@ -1,29 +1,25 @@
 #include "resultsview.h"
 #include "ui_resultsview.h"
 
+
 ResultsView::ResultsView(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::ResultsView)
 {
     ui->setupUi(this);
-    setVisible(false);
+    setWindowFlag(Qt::FramelessWindowHint);
+    setWindowOpacity(0.0);
 
-    opacity = new QGraphicsOpacityEffect(this);
-    opacity->setOpacity(0);
-    fadeInAnimation = new QPropertyAnimation( opacity, "opacity" );
-    setGraphicsEffect(opacity);
+    fadeInAnimation = new QPropertyAnimation( this, "windowOpacity" );
     fadeInAnimation->setDuration( 500 );
     fadeInAnimation->setStartValue( 0.0 );
     fadeInAnimation->setEndValue( 1.0 );
 
 
-    //QObject::connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(appearing()));
-
 }
 
 void ResultsView::appearing(){
-
-
+    showFullScreen();
     fadeInAnimation->start();
 }
 

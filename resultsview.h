@@ -1,8 +1,7 @@
 #ifndef RESULTSVIEW_H
 #define RESULTSVIEW_H
 
-#include <QWidget>
-
+#include <QDialog>
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
 
@@ -10,7 +9,7 @@ namespace Ui {
 class ResultsView;
 }
 
-class ResultsView : public QWidget
+class ResultsView : public QDialog
 {
     Q_OBJECT
 
