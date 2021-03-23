@@ -3,6 +3,9 @@
 
 #include <QWidget>
 
+#include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
+
 namespace Ui {
 class ResultsView;
 }
@@ -15,8 +18,14 @@ public:
     explicit ResultsView(QWidget *parent = nullptr);
     ~ResultsView();
 
+public slots:
+    void appearing();
+
 private:
     Ui::ResultsView *ui;
+
+    QPropertyAnimation *fadeInAnimation;
+    QGraphicsOpacityEffect *opacity;
 };
 
 #endif // RESULTSVIEW_H
