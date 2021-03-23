@@ -18,5 +18,5 @@ void createFadeOut(QGraphicsOpacityEffect *op, QPropertyAnimation *fadeOutAnimat
     fadeOutAnimation->setDuration( 500 );
     fadeOutAnimation->setStartValue( 1.0 );
     fadeOutAnimation->setEndValue( 0.0 );
-
 }
+

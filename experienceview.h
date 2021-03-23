@@ -6,6 +6,8 @@
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
 
+#include "resultsview.h"
+
 
 namespace Ui { class ExperienceView; }
 
@@ -22,8 +24,10 @@ public slots:
 
 private:
     Ui::ExperienceView *ui;
-    QPropertyAnimation *mpFadeOut;
-    QGraphicsOpacityEffect *op;
+    ResultsView *resultsView;
+
+    QPropertyAnimation *fadeOutAnimation;
+    QGraphicsOpacityEffect *opacity;
 };
 
 #endif // EXPERIENCEVIEW_H

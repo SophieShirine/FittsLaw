@@ -17,7 +17,6 @@ public:
 private:
     Ui::MainWindow *mainUi;
     ExperienceView *experienceView;
-    //AJOUTER ICI LES DEUX AUTRES FENETRES
     //AJOUT LE CONTROLLEUR
     //AJOUT DU MODELE
 };

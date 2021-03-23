@@ -12,16 +12,17 @@ SOURCES += \
     experienceview.cpp \
     main.cpp \
     mainview.cpp \
-    utils.cpp
+    resultsview.cpp
 
 HEADERS += \
     experienceview.h \
     mainview.h \
-    utils.h
+    resultsview.h
 
 FORMS += \
     experienceview.ui \
-    mainView.ui
+    mainView.ui \
+    resultsview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
