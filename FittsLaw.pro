@@ -9,18 +9,15 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    experienceview.cpp \
     main.cpp \
     mainview.cpp \
     resultsview.cpp
 
 HEADERS += \
-    experienceview.h \
     mainview.h \
     resultsview.h
 
 FORMS += \
-    experienceview.ui \
     mainView.ui \
     resultsview.ui
 
