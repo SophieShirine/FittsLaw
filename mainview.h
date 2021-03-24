@@ -17,11 +17,21 @@ class MainView : public QMainWindow
     Q_OBJECT
 
 public:
-    MainView(QWidget *parent = nullptr);
     MainView(FittsModel *model,QWidget *parent = nullptr);
     ~MainView();
 
+    void updateAValueLabel(int x);
+    void updateBValueLabel(int x);
+    void updateNbTargetLabel(int x);
+    void updateMinSizeLabel(int x);
+    void updateMaxSizeLabel(int x);
+
 public slots:
+    /*void updateAValueLabel(int x);
+    void updateBValueLabel(int x);
+    void updateNbTargetLabel(int x);
+    void updateMinSizeLabel(int x);
+    void updateMaxSizeLabel(int x);*/
 
 private:
     Ui::MainWindow *ui;
@@ -30,5 +40,6 @@ private:
     ExperienceView *m_experienceView;
 
     friend FittsModel;
+    friend FittsController;
 };
 #endif // MAINVIEW_H

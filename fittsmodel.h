@@ -22,8 +22,8 @@ private:
     MainView *m_mainView;
     FittsController *m_controller;
 
-    int cibleLeft = 0;
-    int nbCible = 10;
+    int targetLeft = 0;
+    int nbTarget = 10;
     int minSize = 10;
     int maxSize = 150;
 
@@ -36,9 +36,11 @@ private:
     double itc95 = 0;
 
     QList<QPoint> clickPoints;
-    QList<QPoint> cercleCenter;
-    QList<int> cercleSize;
+    QList<QPoint> circleCenter;
+    QList<int> circleSize;
     QList<qint64> times;
+
+    friend FittsController;
 
 };
 

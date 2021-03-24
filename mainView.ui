@@ -623,6 +623,11 @@
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="aValueTitle">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Value of a :</string>
           </property>
@@ -669,6 +674,11 @@
         </item>
         <item row="4" column="0">
          <widget class="QLabel" name="bValueTitle">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Value of b :</string>
           </property>
@@ -706,6 +716,11 @@
         </item>
         <item row="7" column="0">
          <widget class="QLabel" name="nbTargetTitle">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Number of targets :</string>
           </property>
@@ -743,6 +758,11 @@
         </item>
         <item row="10" column="0">
          <widget class="QLabel" name="minSizeTitle">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Minimum size of targets : </string>
           </property>
@@ -780,6 +800,11 @@
         </item>
         <item row="13" column="0">
          <widget class="QLabel" name="maxSizeTitle">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string>Maximum size of targets : </string>
           </property>
