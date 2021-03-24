@@ -12,26 +12,20 @@ MainView::MainView(FittsModel *model, QWidget *parent)
 {
     ui->setupUi(this);
     this->m_model = model;
+    this->m_controller = new FittsController(this,model);
+    m_model->m_controller = this->m_controller;
 
     m_experienceView = new ExperienceView(this);
 
     //ADD A SIGNAL TO TELL THE CONTROLLER THAT THE EXPERIENCE STARTS
     QObject::connect(ui->startBtn,SIGNAL(clicked()),m_experienceView,SLOT(showExperience()));
-    /*
+
     QObject::connect(ui->aValue,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateAValue(int)));
     QObject::connect(ui->bValue,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateBValue(int)));
     QObject::connect(ui->nbTarget,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateNbTarget(int)));
     QObject::connect(ui->minSize,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateMinSize(int)));
     QObject::connect(ui->maxSize,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateMaxSize(int)));
-    */
 
-
-/*QObject::connect(ui->aValue,SIGNAL(valueChanged(int)),this,SLOT(updateAValueLabel(int)));
-    QObject::connect(ui->bValue,SIGNAL(valueChanged(int)),this,SLOT(updateBValueLabel(int)));
-    QObject::connect(ui->nbTarget,SIGNAL(valueChanged(int)),this,SLOT(updateNbTargetLabel(int)));
-    QObject::connect(ui->minSize,SIGNAL(valueChanged(int)),this,SLOT(updateMinSizeLabel(int)));
-    QObject::connect(ui->maxSize,SIGNAL(valueChanged(int)),this,SLOT(updateMaxSizeLabel(int)));
-    */
     QObject::connect(ui->leaveBtn,SIGNAL(clicked()),this,SLOT(close()));
 
     show();

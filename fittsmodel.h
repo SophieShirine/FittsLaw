@@ -41,6 +41,7 @@ private:
     QList<qint64> times;
 
     friend FittsController;
+    friend MainView;
 
 };
 

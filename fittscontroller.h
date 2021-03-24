@@ -13,6 +13,7 @@ class FittsController : public QObject
     Q_OBJECT
 public:
     explicit FittsController(FittsModel *model, QObject *parent = nullptr);
+    explicit FittsController(MainView *mainView, FittsModel *model, QObject *parent = nullptr);
 
 signals:
 
@@ -22,7 +23,7 @@ public slots:
     void updateBValue(int x);
     void updateNbTarget(int x);
     void updateMinSize(int x);
-    void updateMaxSze(int x);
+    void updateMaxSize(int x);
 
 
 private:
