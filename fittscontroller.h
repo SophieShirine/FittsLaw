@@ -5,26 +5,23 @@
 #include "fittsmodel.h"
 #include "mainview.h"
 
-class MainView;
 class FittsModel;
+class MainView;
 
-
-class FittsController
+class FittsController : public QObject
 {
+    Q_OBJECT
 public:
-    FittsController(MainView *MainView, FittsModel *Model);
-    virtual ~FittsController() {}
+    explicit FittsController(QObject *parent = nullptr);
+    explicit FittsController(FittsModel *model, QObject *parent = nullptr);
 
-public slots:
-    void updateAValueLabel();
-    void updateBValueLabel();
-    void updateNbTargetLabel();
-    void updateMinSizeLabel();
-    void updateMaxSizeLabel();
+signals:
 
 private:
-    MainView *mainView;
-    FittsModel *model;
+    MainView *m_mainView;
+    FittsModel *m_model;
+
+    friend FittsModel;
 };
 
 #endif // FITTSCONTROLLER_H

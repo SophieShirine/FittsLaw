@@ -17,10 +17,10 @@ SOURCES += \
     resultsview.cpp
 
 HEADERS += \
+    mainview.h \
     experienceview.h \
     fittscontroller.h \
     fittsmodel.h \
-    mainview.h \
     resultsview.h
 
 FORMS += \

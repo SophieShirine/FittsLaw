@@ -2,34 +2,33 @@
 #define MAINVIEW_H
 
 #include <QMainWindow>
-#include "experienceview.h"
-#include "fittscontroller.h"
 #include "fittsmodel.h"
+#include "fittscontroller.h"
+#include "experienceview.h"
 
 class FittsModel;
 class FittsController;
+class ExperienceView;
 
 namespace Ui { class MainWindow; }
 
-class MainWiew : public QMainWindow
+class MainView : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWiew(QWidget *parent = nullptr);
-    ~MainWiew();
+    MainView(QWidget *parent = nullptr);
+    MainView(FittsModel *model,QWidget *parent = nullptr);
+    ~MainView();
 
 public slots:
-    void updateAValueLabel();
-    void updateBValueLabel();
-    void updateNbTargetLabel();
-    void updateMinSizeLabel();
-    void updateMaxSizeLabel();
 
 private:
     Ui::MainWindow *ui;
-    ExperienceView *experienceView;
-    FittsController *controller;
-    FittsModel *model;
+    FittsController *m_controller;
+    FittsModel *m_model;
+    ExperienceView *m_experienceView;
+
+    friend FittsModel;
 };
-#endif
+#endif // MAINVIEW_H

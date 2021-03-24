@@ -1,21 +1,26 @@
 #ifndef FITTSMODEL_H
 #define FITTSMODEL_H
-#include <QPoint>
-#include <QList>
-#include <QMainWindow>
 
-class ExperienceView;
+#include "mainview.h"
+#include "fittscontroller.h"
+#include <QObject>
+
 class MainView;
-class ResultsView;
 class FittsController;
 
-class FittsModel
+class MainView;
+
+class FittsModel : public QObject
 {
+    Q_OBJECT
 public:
-    FittsModel();
+    explicit FittsModel(QObject *parent = nullptr);
+
+signals:
 
 private:
-    MainView *mainView;
+    MainView *m_mainView;
+    FittsController *m_controller;
 
     int cibleLeft = 0;
     int nbCible = 10;
@@ -35,10 +40,6 @@ private:
     QList<int> cercleSize;
     QList<qint64> times;
 
-    friend ExperienceView;
-    friend MainView;
-    friend ResultsView;
-    friend FittsController;
 };
 
 #endif // FITTSMODEL_H

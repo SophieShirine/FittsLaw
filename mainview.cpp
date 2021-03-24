@@ -6,23 +6,42 @@
  * allows to set up the parameters for the experience and launch it
 */
 
-MainWiew::MainWiew(QWidget *parent)
+MainView::MainView(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->model = new FittsModel();
-    /*BUG*/
-    ////this->controller = new FittsController(this, this->model);
-    experienceView = new ExperienceView(this);
+    this->m_model = new FittsModel();
 
-    show();
+    m_experienceView = new ExperienceView(this);
 
-    QObject::connect(ui->startBtn,SIGNAL(clicked()),experienceView,SLOT(showExperience()));
+
+    QObject::connect(ui->startBtn,SIGNAL(clicked()),m_experienceView,SLOT(showExperience()));
 
 }
 
-void MainWiew::updateAValueLabel(){
+
+MainView::MainView(FittsModel *model, QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    this->m_model = model;
+
+    m_experienceView = new ExperienceView(this);
+
+    QObject::connect(ui->startBtn,SIGNAL(clicked()),m_experienceView,SLOT(showExperience()));
+
+    show();
+}
+
+MainView::~MainView()
+{
+    delete ui;
+}
+
+
+/*void MainWiew::updateAValueLabel(){
     QString *value = new QString(ui->aValue->value());
     ui->aValueLabel->setText(*value);
 }
@@ -42,9 +61,5 @@ void MainWiew::updateMaxSizeLabel(){
     QString *value = new QString(ui->maxSize->value());
     ui->maxSizeLabel->setText(*value);
 }
-
-MainWiew::~MainWiew()
-{
-    delete ui;
-}
+*/
 
