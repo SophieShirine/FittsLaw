@@ -21,7 +21,6 @@ class ResultsView : public QDialog
 
 public:
     explicit ResultsView(FittsController *controller, QWidget *parent = nullptr);
-    explicit ResultsView(QWidget *parent = nullptr);
     ~ResultsView();
 
 public slots:

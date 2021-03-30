@@ -12,11 +12,13 @@ SOURCES += \
     experienceview.cpp \
     fittscontroller.cpp \
     fittsmodel.cpp \
+    graphicwidget.cpp \
     main.cpp \
     mainview.cpp \
     resultsview.cpp
 
 HEADERS += \
+    graphicwidget.h \
     mainview.h \
     experienceview.h \
     fittscontroller.h \
