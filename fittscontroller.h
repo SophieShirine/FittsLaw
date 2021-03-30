@@ -28,7 +28,7 @@ public slots:
 
     void quit(); //FAIT
     //void startSimulation();
-    void backToSettings();
+    void backToSettings(); //FAIT
     //void resultClicked();
 
     //void targetClicked(int x, int y);
