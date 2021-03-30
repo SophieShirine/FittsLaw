@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "resultsview.h"
 #include "fittscontroller.h"
+#include "graphicwidget.h"
+#include <QGraphicsScene>
 
 class FittsModel;
 class FittsController;
@@ -20,7 +22,6 @@ class ExperienceView : public QDialog
 
 public:
     explicit ExperienceView(FittsController *controller,QWidget *parent = nullptr);
-    explicit ExperienceView(QWidget *parent = nullptr);
     ~ExperienceView();
 
 public slots:
@@ -30,6 +31,9 @@ private:
     Ui::ExperienceView *ui;
     ResultsView *m_resultsView;
     FittsController *m_controller;
+
+    GraphicWidget *m_graphicView;
+    QGraphicsScene *m_scene;
 
     friend ResultsView;
     friend FittsController;
