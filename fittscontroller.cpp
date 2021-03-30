@@ -1,11 +1,7 @@
 #include <iostream>
 #include "fittscontroller.h"
 
-
-FittsController::FittsController(FittsModel *model,QObject *parent) : QObject(parent)
-{
-    this->m_model = model;
-}
+#include <QApplication>
 
 FittsController::FittsController(MainView *mainView ,FittsModel *model,QObject *parent) : QObject(parent)
 {
@@ -32,4 +28,13 @@ void FittsController::updateMinSize(int x){
 void FittsController::updateMaxSize(int x){
     m_model->maxSize = x;
     m_mainView->updateMaxSizeLabel(x);
+}
+
+void FittsController::quit() {
+    QApplication::quit();
+}
+
+void FittsController::backToSettings() {
+    this->m_mainView->m_experienceView->m_resultsView->close();
+    this->m_mainView->m_experienceView->close();
 }

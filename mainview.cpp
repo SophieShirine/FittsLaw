@@ -15,10 +15,11 @@ MainView::MainView(FittsModel *model, QWidget *parent)
     this->m_controller = new FittsController(this,model);
     m_model->m_controller = this->m_controller;
 
-    m_experienceView = new ExperienceView(this);
+    m_experienceView = new ExperienceView(m_controller,this);
+    //m_experienceView = new ExperienceView(this);
 
     //ADD A SIGNAL TO TELL THE CONTROLLER THAT THE EXPERIENCE STARTS
-    QObject::connect(ui->startBtn,SIGNAL(clicked()),m_experienceView,SLOT(showExperience()));
+    QObject::connect(ui->startBtn,SIGNAL(clicked()),m_experienceView,SLOT(showExperience())); //has to be changed
 
     QObject::connect(ui->aValue,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateAValue(int)));
     QObject::connect(ui->bValue,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateBValue(int)));
@@ -26,7 +27,7 @@ MainView::MainView(FittsModel *model, QWidget *parent)
     QObject::connect(ui->minSize,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateMinSize(int)));
     QObject::connect(ui->maxSize,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateMaxSize(int)));
 
-    QObject::connect(ui->leaveBtn,SIGNAL(clicked()),this,SLOT(close()));
+    QObject::connect(ui->leaveBtn,SIGNAL(clicked()),this,SLOT(close())); //has to be changed
 
     show();
 }

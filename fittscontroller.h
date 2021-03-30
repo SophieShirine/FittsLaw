@@ -12,23 +12,36 @@ class FittsController : public QObject
 {
     Q_OBJECT
 public:
-    explicit FittsController(FittsModel *model, QObject *parent = nullptr);
     explicit FittsController(MainView *mainView, FittsModel *model, QObject *parent = nullptr);
+    virtual ~FittsController() {}
+    //void start(); A VOIR SI BESOIN
 
 signals:
 
 public slots:
 
-    void updateAValue(int x);
-    void updateBValue(int x);
-    void updateNbTarget(int x);
-    void updateMinSize(int x);
-    void updateMaxSize(int x);
+    void updateAValue(int x); //FAIT
+    void updateBValue(int x); //FAIT
+    void updateNbTarget(int x); //FAIT
+    void updateMinSize(int x); //FAIT
+    void updateMaxSize(int x); //FAIT
 
+    void quit(); //FAIT
+    //void startSimulation();
+    void backToSettings();
+    //void resultClicked();
+
+    //void targetClicked(int x, int y);
 
 private:
     MainView *m_mainView;
     FittsModel *m_model;
+
+    void initGame();
+    void finish();
+    void nextTarget();
+
+    void calculateResult();
 
     friend FittsModel;
 };

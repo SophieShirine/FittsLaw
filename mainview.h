@@ -9,6 +9,7 @@
 class FittsModel;
 class FittsController;
 class ExperienceView;
+class ResultsView;
 
 namespace Ui { class MainWindow; }
 
@@ -27,11 +28,6 @@ public:
     void updateMaxSizeLabel(int x);
 
 public slots:
-    /*void updateAValueLabel(int x);
-    void updateBValueLabel(int x);
-    void updateNbTargetLabel(int x);
-    void updateMinSizeLabel(int x);
-    void updateMaxSizeLabel(int x);*/
 
 private:
     Ui::MainWindow *ui;
@@ -41,5 +37,7 @@ private:
 
     friend FittsModel;
     friend FittsController;
+    friend ResultsView;
+    friend ExperienceView;
 };
 #endif // MAINVIEW_H
