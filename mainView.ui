@@ -614,7 +614,7 @@
         <item row="0" column="1">
          <widget class="QLabel" name="aValueLabel">
           <property name="text">
-           <string>0</string>
+           <string>2</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -635,6 +635,12 @@
         </item>
         <item row="1" column="1">
          <widget class="QSlider" name="aValue">
+          <property name="pageStep">
+           <number>10</number>
+          </property>
+          <property name="value">
+           <number>2</number>
+          </property>
           <property name="tracking">
            <bool>true</bool>
           </property>
@@ -665,7 +671,7 @@
         <item row="3" column="1">
          <widget class="QLabel" name="bValueLabel">
           <property name="text">
-           <string>0</string>
+           <string>2</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -686,6 +692,9 @@
         </item>
         <item row="4" column="1">
          <widget class="QSlider" name="bValue">
+          <property name="value">
+           <number>2</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -707,7 +716,7 @@
         <item row="6" column="1">
          <widget class="QLabel" name="nbTargetLabel">
           <property name="text">
-           <string>0</string>
+           <string>10</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -728,6 +737,12 @@
         </item>
         <item row="7" column="1">
          <widget class="QSlider" name="nbTarget">
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>10</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -749,7 +764,7 @@
         <item row="9" column="1">
          <widget class="QLabel" name="minSizeLabel">
           <property name="text">
-           <string>0</string>
+           <string>10</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -770,6 +785,12 @@
         </item>
         <item row="10" column="1">
          <widget class="QSlider" name="minSize">
+          <property name="maximum">
+           <number>500</number>
+          </property>
+          <property name="value">
+           <number>10</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -791,7 +812,7 @@
         <item row="12" column="1">
          <widget class="QLabel" name="maxSizeLabel">
           <property name="text">
-           <string>0</string>
+           <string>150</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -812,6 +833,12 @@
         </item>
         <item row="13" column="1">
          <widget class="QSlider" name="maxSize">
+          <property name="maximum">
+           <number>500</number>
+          </property>
+          <property name="value">
+           <number>99</number>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>

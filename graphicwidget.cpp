@@ -1,4 +1,5 @@
 #include "graphicwidget.h"
+#include <iostream>
 
 GraphicWidget::GraphicWidget() {
 

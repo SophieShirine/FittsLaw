@@ -22,9 +22,10 @@ class ResultsView : public QDialog
 public:
     explicit ResultsView(FittsController *controller, QWidget *parent = nullptr);
     ~ResultsView();
+    void appearing();
 
 public slots:
-    void appearing();
+    //void appearing();
 
 private:
     Ui::ResultsView *ui;

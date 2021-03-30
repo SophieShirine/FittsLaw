@@ -14,12 +14,18 @@ MainView::MainView(FittsModel *model, QWidget *parent)
     this->m_model = model;
     this->m_controller = new FittsController(this,model);
     m_model->m_controller = this->m_controller;
-
     m_experienceView = new ExperienceView(m_controller,this);
-    //m_experienceView = new ExperienceView(this);
+
+    m_aValueLabel = ui->aValueLabel;
+    m_bValueLabel = ui->bValueLabel;
+    m_nbTargetLabel = ui->nbTargetLabel;
+    m_minSizeLabel = ui->minSizeLabel;
+    m_maxSizeLabel = ui->maxSizeLabel;
+
+    m_aValueLabel->setText(QString::number(m_model->a));
 
     //ADD A SIGNAL TO TELL THE CONTROLLER THAT THE EXPERIENCE STARTS
-    QObject::connect(ui->startBtn,SIGNAL(clicked()),m_experienceView,SLOT(showExperience())); //has to be changed
+    QObject::connect(ui->startBtn,SIGNAL(clicked()),m_controller,SLOT(startSimulation()));
 
     QObject::connect(ui->aValue,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateAValue(int)));
     QObject::connect(ui->bValue,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateBValue(int)));
@@ -30,23 +36,6 @@ MainView::MainView(FittsModel *model, QWidget *parent)
     QObject::connect(ui->leaveBtn,SIGNAL(clicked()),this,SLOT(close())); //has to be changed
 
     show();
-}
-
-
-void MainView::updateAValueLabel(int x){
-    ui->aValueLabel->setText(QString::number(x));
-}
-void MainView::updateBValueLabel(int x){
-    ui->bValueLabel->setText(QString::number(x));
-}
-void MainView::updateNbTargetLabel(int x){
-    ui->nbTargetLabel->setText(QString::number(x));
-}
-void MainView::updateMinSizeLabel(int x){
-    ui->minSizeLabel->setText(QString::number(x));
-}
-void MainView::updateMaxSizeLabel(int x){
-    ui->maxSizeLabel->setText(QString::number(x));
 }
 
 MainView::~MainView()

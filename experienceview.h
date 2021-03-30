@@ -6,6 +6,8 @@
 #include "fittscontroller.h"
 #include "graphicwidget.h"
 #include <QGraphicsScene>
+#include <QLabel>
+#include <QPushButton>
 
 class FittsModel;
 class FittsController;
@@ -25,7 +27,6 @@ public:
     ~ExperienceView();
 
 public slots:
-    void showExperience();
 
 private:
     Ui::ExperienceView *ui;
@@ -34,6 +35,9 @@ private:
 
     GraphicWidget *m_graphicView;
     QGraphicsScene *m_scene;
+
+    QLabel *m_nbTargetsLeft;
+    QPushButton *m_resultsBtn;
 
     friend ResultsView;
     friend FittsController;

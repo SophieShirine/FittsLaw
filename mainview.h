@@ -5,6 +5,7 @@
 #include "fittsmodel.h"
 #include "fittscontroller.h"
 #include "experienceview.h"
+#include <QLabel>
 
 class FittsModel;
 class FittsController;
@@ -21,12 +22,6 @@ public:
     MainView(FittsModel *model,QWidget *parent = nullptr);
     ~MainView();
 
-    void updateAValueLabel(int x);
-    void updateBValueLabel(int x);
-    void updateNbTargetLabel(int x);
-    void updateMinSizeLabel(int x);
-    void updateMaxSizeLabel(int x);
-
 public slots:
 
 private:
@@ -34,6 +29,12 @@ private:
     FittsController *m_controller;
     FittsModel *m_model;
     ExperienceView *m_experienceView;
+
+    QLabel* m_aValueLabel;
+    QLabel* m_bValueLabel;
+    QLabel* m_nbTargetLabel;
+    QLabel* m_minSizeLabel;
+    QLabel* m_maxSizeLabel;
 
     friend FittsModel;
     friend FittsController;

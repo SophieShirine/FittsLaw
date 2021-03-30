@@ -10,6 +10,8 @@ ExperienceView::ExperienceView(FittsController *controller, QWidget *parent) :
     ui->setupUi(this);
     m_controller = controller;
     m_resultsView = new ResultsView(m_controller,this);
+    m_nbTargetsLeft = ui->nbTargetLeftLabel;
+    m_resultsBtn = ui->resultsButton;
 
     /////GRAPHIC WIDGET SET UP
     m_graphicView = new GraphicWidget();
@@ -23,14 +25,11 @@ ExperienceView::ExperienceView(FittsController *controller, QWidget *parent) :
     m_scene->setSceneRect(0,0,m_graphicView->width(),300);
 
     /////SIGNALS CONNECTIONS
-    QObject::connect(ui->pushButton,SIGNAL(clicked()),this->m_resultsView,SLOT(appearing()));
+    QObject::connect(ui->resultsButton,SIGNAL(clicked()),m_controller,SLOT(resultClicked()));
     QObject::connect(ui->leaveBtn,SIGNAL(clicked()),this,SLOT(close()));
+    connect(m_graphicView, SIGNAL(mouseClicked(int,int)), m_controller, SLOT(targetClicked(int,int)));
 }
 
-
-void ExperienceView::showExperience(){
-    showFullScreen();
-}
 
 
 ExperienceView::~ExperienceView()

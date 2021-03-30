@@ -16,7 +16,6 @@ ResultsView::ResultsView(FittsController *controller, QWidget *parent) :
     fadeInAnimation->setStartValue( 0.0 );
     fadeInAnimation->setEndValue( 1.0 );
 
-    //QObject::connect(ui->resultLeaveBtn,SIGNAL(clicked()),this,SLOT(close()));
     QObject::connect(ui->resultLeaveBtn,SIGNAL(clicked()),m_controller,SLOT(backToSettings()));
 
 }

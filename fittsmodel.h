@@ -27,8 +27,8 @@ private:
     int minSize = 10;
     int maxSize = 150;
 
-    double a = 0.20;
-    double b = 0.10;
+    double a = 2;
+    double b =2;
 
     double ecartType = 0;
     double erreurType = 0;
