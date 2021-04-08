@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cmath>
 #include <QRandomGenerator>
+#include <QLineSeries>
+#include <QCategoryAxis>
 
 FittsController::FittsController(MainView *mainView ,FittsModel *model,QObject *parent) : QObject(parent)
 {
@@ -150,11 +152,90 @@ void FittsController::nextTarget() {
     scene->addEllipse(posX - (size / 2), posY - (size / 2), size, size, QPen(QColor("red")),QBrush(QColor("red")));
 }
 
+void FittsController::calculateResult(){
+    //CHART DISPLAY
+    QChart *chart = new QChart;
+    this->getResView()->plot->setChart(chart);
+    this->getResView()->plot->setRenderHint(QPainter::Antialiasing);
+
+    chart->setTitle("Fitts Law Results");
+    chart->setAnimationOptions(QChart::AllAnimations);
+    chart->createDefaultAxes();
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+
+    QLineSeries *expSeries = new QLineSeries;
+    expSeries->setName("Experimental curve");
+    QLineSeries *fittsSeries = new QLineSeries;
+    fittsSeries->setName("Theoritical curve");
+    QCategoryAxis *axis = new QCategoryAxis;
+
+    QList<double> fittsValues;
+
+    for(int i = 0; i < this->m_model->nbTarget; ++i) {
+        double T = this->m_model->times[i];
+        expSeries->append(i,T);
+        double D = sqrt(pow(this->m_model->clickPoints[i].x() - this->m_model->circleCenter[i].x(),2) + pow(this->m_model->clickPoints[i].y() - this->m_model->circleCenter[i].y(),2));
+
+        // On multiplie par 100 pour être en ms
+        double value = (this->m_model->a * 1000) + ((this->m_model->b * 1000) * log2((D / this->m_model->circleSize[i]) + 1));
+        fittsValues.append(value);
+        fittsSeries->append(i,value);
+
+        axis->append(QString::number(i + 1) + "<br />T: "+QString::number(T)+"<br />D: " + QString::number(D),i);
+    }
+
+    axis->setLabelsPosition(QCategoryAxis::AxisLabelsPositionOnValue);
+
+    chart->addSeries(expSeries);
+    chart->addSeries(fittsSeries);
+
+    chart->setAxisX(axis,expSeries);
+    chart->setAxisX(axis,fittsSeries);
+
+    QValueAxis *axisY = new QValueAxis;
+    axisY->setTitleText("temps (en ms)");
+    chart->setAxisY(axisY,expSeries);
+
+    //STATS
+
+    /**Averages**/
+    QList<double> diffValues;
+    double diffMoy = 0;
+
+    for (int i = 0; i < fittsValues.size(); ++i) {
+        diffValues.append(fabs(fittsValues[i] - this->m_model->times[i]));
+        diffMoy += fabs(fittsValues[i] - this->m_model->times[i]);
+    }
+    diffMoy /= fittsValues.size();
+
+    // stock mean differance
+    this->m_model->diffMoy = fabs(diffMoy);
+
+    /**standard deviation**/
+    double variance = 0;
+
+    for (int i = 0; i < fittsValues.size(); ++i) {
+        variance += pow(diffValues[i] - diffMoy,2);
+    }
+    variance /= fittsValues.size();
+
+    double ecartType = sqrt(variance);
+
+    // stock standard deviation
+    this->m_model->ecartType = ecartType;
+    // stock standard error
+    this->m_model->erreurType = fabs(ecartType / sqrt(fittsValues.size()));
+    // stock itc 95%
+    this->m_model->itc95 = 2 * this->m_model->erreurType;
+
+    this->getResView()->displayResults(m_model->diffMoy,m_model->ecartType,m_model->erreurType,m_model->itc95);
+
+}
 
 void FittsController::resultClicked() {
+    this->calculateResult();
     this->getResView()->appearing();
-
-    //this->calculateResult();
 }
 
 void FittsController::quit() {

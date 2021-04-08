@@ -8,19 +8,21 @@ ResultsView::ResultsView(FittsController *controller, QWidget *parent) :
 {
     ui->setupUi(this);
     m_controller = controller;
+    plot = new QChartView;
+    ui->chartLayout->addWidget(plot);
+
     setWindowFlag(Qt::FramelessWindowHint);
     setWindowOpacity(0.0);
 
+    //FADE IN ANIMATION
     fadeInAnimation = new QPropertyAnimation( this, "windowOpacity" );
     fadeInAnimation->setDuration( 300 );
     fadeInAnimation->setStartValue( 0.0 );
     fadeInAnimation->setEndValue( 1.0 );
 
-    plot = new QChartView; //CREER UN QCHARTVIEW
-    ui->chartLayout->addWidget(plot);
-    //resultLayout->addWidget(plot); //AJOUTER AU LAYOUT
-
-    QObject::connect(ui->resultLeaveBtn,SIGNAL(clicked()),m_controller,SLOT(backToSettings()));
+    //CONNECTIONS
+    QObject::connect(ui->resultLeaveBtn,SIGNAL(clicked()),m_controller,SLOT(quit()));
+    QObject::connect(ui->restartBtn,SIGNAL(clicked()),m_controller,SLOT(backToSettings()));
 
 }
 
@@ -30,14 +32,12 @@ void ResultsView::appearing(){
     fadeInAnimation->start();
 }
 
-void ResultsView::displayResults() {
-    //ui->mDiff->setText(QString::number(this->m_model->diffMoy));
-    /*this->diffMoy->setText(QString::number(this->fittsModel->diffMoy));
-    this->ecartType->setText(QString::number(this->fittsModel->ecartType));
-    this->erreurType->setText(QString::number(this->fittsModel->erreurType));
-    this->itc95->setText(QString::number(this->fittsModel->itc95));*/
+void ResultsView::displayResults(double meanDiff, double sDev, double sErr, double itc) {
+    ui->mDiff->setText(QString::number(meanDiff));
+    ui->cInt->setText(QString::number(itc));
+    ui->sDev->setText(QString::number(sDev));
+    ui->sErr->setText(QString::number(sErr));
 }
-
 
 ResultsView::~ResultsView()
 {

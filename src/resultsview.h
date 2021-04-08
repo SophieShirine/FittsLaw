@@ -26,7 +26,7 @@ public:
     explicit ResultsView(FittsController *controller, QWidget *parent = nullptr);
     ~ResultsView();
     void appearing();
-    void displayResults();
+    void displayResults(double meanDiff, double sDev, double sErr, double itc);
 
 public slots:
 
@@ -39,8 +39,7 @@ private:
     QPropertyAnimation *fadeInAnimation;
     QGraphicsOpacityEffect *opacity;
 
-
-
+    friend FittsController;
 };
 
 #endif // RESULTSVIEW_H

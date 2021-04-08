@@ -47,7 +47,7 @@ private:
 
     void initGame(); //FAIT
     void finish(); //FAIT
-    void nextTarget();
+    void nextTarget(); //FAIT
 
     void calculateResult();
 

@@ -231,7 +231,7 @@
    <item>
     <layout class="QHBoxLayout" name="btnLayout">
      <item>
-      <widget class="QPushButton" name="restardBtn">
+      <widget class="QPushButton" name="restartBtn">
        <property name="minimumSize">
         <size>
          <width>130</width>
