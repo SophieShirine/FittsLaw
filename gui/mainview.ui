@@ -468,7 +468,7 @@
    <string>MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resourceFile.qrc">
+   <iconset resource="../resourceFile.qrc">
     <normaloff>:/images/ResourceFile/windowIcon.png</normaloff>:/images/ResourceFile/windowIcon.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -566,7 +566,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="resourceFile.qrc">:/images/ResourceFile/formula.png</pixmap>
+           <pixmap resource="../resourceFile.qrc">:/images/ResourceFile/formula.png</pixmap>
           </property>
          </widget>
         </item>
@@ -786,7 +786,7 @@
         <item row="10" column="1">
          <widget class="QSlider" name="minSize">
           <property name="maximum">
-           <number>249</number>
+           <number>200</number>
           </property>
           <property name="value">
            <number>10</number>
@@ -1002,7 +1002,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="resourceFile.qrc"/>
+  <include location="../resourceFile.qrc"/>
  </resources>
  <connections/>
 </ui>
