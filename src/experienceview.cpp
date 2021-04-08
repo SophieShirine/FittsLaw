@@ -15,6 +15,7 @@ ExperienceView::ExperienceView(FittsController *controller, QWidget *parent) :
 
     /////GRAPHIC WIDGET SET UP
     m_graphicView = new GraphicWidget();
+    m_graphicView->setBackgroundBrush(QBrush(Qt::white));
     ui->GraphicLayout->addWidget(m_graphicView);
     m_graphicView->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff);
     m_graphicView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
