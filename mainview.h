@@ -6,6 +6,7 @@
 #include "fittscontroller.h"
 #include "experienceview.h"
 #include <QLabel>
+#include <QSlider>
 
 class FittsModel;
 class FittsController;
@@ -35,6 +36,9 @@ private:
     QLabel* m_nbTargetLabel;
     QLabel* m_minSizeLabel;
     QLabel* m_maxSizeLabel;
+
+    QSlider *m_minSizeSlider;
+    QSlider *m_maxSizeSlider;
 
     friend FittsModel;
     friend FittsController;

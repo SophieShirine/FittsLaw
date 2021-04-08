@@ -21,6 +21,8 @@ MainView::MainView(FittsModel *model, QWidget *parent)
     m_nbTargetLabel = ui->nbTargetLabel;
     m_minSizeLabel = ui->minSizeLabel;
     m_maxSizeLabel = ui->maxSizeLabel;
+    m_minSizeSlider = ui->minSize;
+    m_maxSizeSlider = ui->maxSize;
 
     m_aValueLabel->setText(QString::number(m_model->a));
 

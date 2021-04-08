@@ -786,7 +786,7 @@
         <item row="10" column="1">
          <widget class="QSlider" name="minSize">
           <property name="maximum">
-           <number>500</number>
+           <number>249</number>
           </property>
           <property name="value">
            <number>10</number>

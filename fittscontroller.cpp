@@ -34,10 +34,21 @@ void FittsController::updateNbTarget(int x){
 void FittsController::updateMinSize(int x){
     m_model->minSize = x;
     m_mainView->m_minSizeLabel->setText(QString::number(x));
+
+    if(m_mainView->m_maxSizeSlider->value() < 2 * x){
+        m_mainView->m_maxSizeSlider->setSliderPosition(2*x);
+    }
 }
 void FittsController::updateMaxSize(int x){
-    m_model->maxSize = x;
-    m_mainView->m_maxSizeLabel->setText(QString::number(x));
+    if(x < m_mainView->m_minSizeSlider->value() * 2 ){
+        m_mainView->m_maxSizeSlider->setSliderPosition(m_mainView->m_minSizeSlider->value() * 2 );
+        m_model->maxSize = m_mainView->m_minSizeSlider->value() * 2 ;
+        m_mainView->m_maxSizeLabel->setText(QString::number(m_mainView->m_minSizeSlider->value() * 2 ));
+    }else{
+        m_model->maxSize = x;
+        m_mainView->m_maxSizeLabel->setText(QString::number(x));
+    }
+
 }
 
 void FittsController::startSimulation() {
@@ -52,6 +63,7 @@ void FittsController::startSimulation() {
     this->m_model->times.clear();
 
     //RESIZE SCENE
+    this->getExpView()->m_scene->setSceneRect(0,0,getExpView()->width(),getExpView()->height());
     this->getExpView()->m_graphicView->fitInView(getExpView()->m_scene->sceneRect(),Qt::KeepAspectRatio);
 
     this->initGame();
@@ -119,9 +131,15 @@ void FittsController::nextTarget() {
 
     //Create a red circle
     int size = QRandomGenerator::global()->bounded(this->m_model->minSize,(this->m_model->maxSize + 1) - this->m_model->minSize);
+
     int sceneW = int(scene->width());
     int sceneH = int(scene->height());
 
+    std::cout << "W : " << sceneW << std::endl;
+    std::cout << "H : " << sceneH << std::endl;
+    std::cout << "size" << size << std::endl;
+
+    //METTRE IF AVEC MAX
     qreal posX = QRandomGenerator::global()->bounded(size,sceneW - size);
     qreal posY = QRandomGenerator::global()->bounded(size,sceneH - size);
 
