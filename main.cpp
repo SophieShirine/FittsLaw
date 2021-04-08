@@ -7,6 +7,5 @@ int main(int argc, char *argv[])
 
     FittsModel model;
 
-
     return a.exec();
 }
