@@ -37,8 +37,9 @@ public slots:
     void startSimulation(); //FAIT
     void backToSettings(); //FAIT
     void resultClicked(); //A FIGNOLER
+    void targetClicked(int x, int y); //FAIT
 
-    void targetClicked(int x, int y);
+    void saveResults();
 
 private:
     MainView *m_mainView;
@@ -49,7 +50,7 @@ private:
     void finish(); //FAIT
     void nextTarget(); //FAIT
 
-    void calculateResult();
+    void calculateResult(); //FAIT
 
     friend FittsModel;
 };

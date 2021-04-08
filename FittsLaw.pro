@@ -21,7 +21,6 @@ SOURCES += \
     ./src/resultsview.cpp \
     main.cpp \
 
-
 FORMS += \
     ./gui/experienceview.ui \
     ./gui/mainView.ui \
@@ -31,6 +30,7 @@ INCLUDEPATH +=  \
     ./utils \
     ./src \
     ./gui \
+    ./results \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

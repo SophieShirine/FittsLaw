@@ -23,6 +23,7 @@ ResultsView::ResultsView(FittsController *controller, QWidget *parent) :
     //CONNECTIONS
     QObject::connect(ui->resultLeaveBtn,SIGNAL(clicked()),m_controller,SLOT(quit()));
     QObject::connect(ui->restartBtn,SIGNAL(clicked()),m_controller,SLOT(backToSettings()));
+    QObject::connect(ui->saveBtn,SIGNAL(clicked()),m_controller,SLOT(saveResults()));
 
 }
 

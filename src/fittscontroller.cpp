@@ -1,12 +1,14 @@
 #include <iostream>
+#include <string>
 #include "fittscontroller.h"
-
 #include <QApplication>
 #include <iostream>
 #include <cmath>
 #include <QRandomGenerator>
 #include <QLineSeries>
 #include <QCategoryAxis>
+#include <QTextStream>
+#include <QDir>
 
 FittsController::FittsController(MainView *mainView ,FittsModel *model,QObject *parent) : QObject(parent)
 {
@@ -238,6 +240,25 @@ void FittsController::resultClicked() {
     this->getResView()->appearing();
 }
 
+void FittsController::saveResults(){
+    QDir *resultDir = new QDir("../FittsLaw/results");
+    resultDir->setFilter( QDir::AllEntries | QDir::NoDotAndDotDot );
+    int nbFiles = resultDir->count();
+
+    QString *path = new QString("../FittsLaw/results/results");
+    path->append(QString::number(nbFiles));
+    path->append(".txt");
+    QFile *resultFile = new QFile(*path);
+    resultFile->open(QIODevice::WriteOnly);
+
+    QTextStream flux(resultFile);
+    flux.setCodec("UTF-8");
+
+    flux << "Experience results :\n\nMean difference = " << m_model->diffMoy << "\nStandard variation = "<< m_model->ecartType
+         <<  "\nStandard error = "<< m_model->erreurType << "\nConfidence itnerval = " << m_model->itc95 ;
+    resultFile->close();
+}
+
 void FittsController::quit() {
     QApplication::quit();
 }
@@ -246,7 +267,6 @@ void FittsController::backToSettings() {
     this->m_mainView->m_experienceView->m_resultsView->close();
     this->m_mainView->m_experienceView->close();
 }
-
 
 void FittsController::finish() {
     this->getExpView()->m_graphicView->setEnabled(false);
