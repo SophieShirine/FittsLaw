@@ -70,6 +70,8 @@ void FittsController::startSimulation() {
 }
 
 void FittsController::initGame(){
+    getExpView()->m_resultsBtn->setEnabled(false);
+
     QGraphicsScene *scene = this->getExpView()->m_scene;
     scene->clear();
 
@@ -111,13 +113,14 @@ void FittsController::targetClicked(int x, int y) {
             // Take the click position
             this->m_model->clickPoints.append(QPoint(x,y));
             this->nextTarget();
-            }
+        }
     }
 }
 
 void FittsController::nextTarget() {
     if(!m_model->circleCenter.isEmpty()){
         m_model->targetLeft--;
+        getExpView()->m_nbTargetsLeft->setText(QString::number(m_model->targetLeft));
     }
 
     QGraphicsScene *scene = getExpView()->m_scene;
@@ -135,13 +138,9 @@ void FittsController::nextTarget() {
     int sceneW = int(scene->width());
     int sceneH = int(scene->height());
 
-    std::cout << "W : " << sceneW << std::endl;
-    std::cout << "H : " << sceneH << std::endl;
-    std::cout << "size" << size << std::endl;
-
     //METTRE IF AVEC MAX
-    qreal posX = QRandomGenerator::global()->bounded(size,sceneW - size);
-    qreal posY = QRandomGenerator::global()->bounded(size,sceneH - size);
+    qreal posX = QRandomGenerator::global()->bounded(std::min(size,sceneW - size),std::max(size,sceneW - size));
+    qreal posY = QRandomGenerator::global()->bounded(std::min(size,sceneH - size),std::max(size,sceneH - size));
 
     //Stock circle information
     m_model->circleCenter.append(QPoint(int(posX),int(posY)));
@@ -170,5 +169,6 @@ void FittsController::backToSettings() {
 
 void FittsController::finish() {
     this->getExpView()->m_graphicView->setEnabled(false);
+    //this->getExpView()->m_graphicView->setBackgroundBrush(QBrush(Qt::white));
     this->getExpView()->m_resultsBtn->setEnabled(true);
 }

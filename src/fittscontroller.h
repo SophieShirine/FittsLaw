@@ -34,7 +34,7 @@ public slots:
     void updateMaxSize(int x); //FAIT
 
     void quit(); //FAIT
-    void startSimulation(); //A FIGNOLER
+    void startSimulation(); //FAIT
     void backToSettings(); //FAIT
     void resultClicked(); //A FIGNOLER
 

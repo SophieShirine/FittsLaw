@@ -1,10 +1,13 @@
 #ifndef RESULTSVIEW_H
 #define RESULTSVIEW_H
 
+#include <QChartView>
 #include <QDialog>
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
 #include "fittscontroller.h"
+
+QT_CHARTS_USE_NAMESPACE
 
 class FittsModel;
 class FittsController;
@@ -23,16 +26,19 @@ public:
     explicit ResultsView(FittsController *controller, QWidget *parent = nullptr);
     ~ResultsView();
     void appearing();
+    void displayResults();
 
 public slots:
-    //void appearing();
 
 private:
     Ui::ResultsView *ui;
     FittsController *m_controller;
 
+    QChartView *plot;
+
     QPropertyAnimation *fadeInAnimation;
     QGraphicsOpacityEffect *opacity;
+
 
 
 };
