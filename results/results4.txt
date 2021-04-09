@@ -1,0 +1,6 @@
+Experience results :
+
+Mean difference = 5874
+Standard variation = 984.093
+Standard error = 401.754
+Confidence itnerval = 803.508
