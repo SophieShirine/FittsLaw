@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     QString lang = QInputDialog::getItem(NULL,"Select Language","Language",languages);
 
     if(lang == "French"){
-        t.load(":/languages/french.qm");
+        t.load(":/languages/ResourceFile/french.qm");
     }
 
     if(lang != "English"){
