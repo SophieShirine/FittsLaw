@@ -89,7 +89,8 @@ void FittsController::initGame(){
     qreal posX = scene->width() / 2;
     qreal posY = scene->height() / 2;
 
-    QLabel *startLabel = new QLabel("Click anywhere on the screen \nto start the simulation !");
+    //QLabel *startLabel = new QLabel("Click anywhere on the screen \nto start the simulation !");
+    QLabel *startLabel = new QLabel(tr("Click anywhere on the screen \nto start the simulation !"));
     startLabel->setAlignment(Qt::AlignCenter);
     QString *style = new QString("background-color: rgb(232, 72, 85);color: rgb(255,255,255); font-size:50px;padding: 20px;");
     startLabel->setStyleSheet(*style);
@@ -167,16 +168,19 @@ void FittsController::calculateResult(){
     this->getResView()->plot->setChart(chart);
     this->getResView()->plot->setRenderHint(QPainter::Antialiasing);
 
-    chart->setTitle("Fitts Law Results");
+    //chart->setTitle("Fitts Law Results");
+    chart->setTitle(tr("Fitts Law Results"));
     chart->setAnimationOptions(QChart::AllAnimations);
     chart->createDefaultAxes();
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignBottom);
 
     QLineSeries *expSeries = new QLineSeries;
-    expSeries->setName("Experimental curve");
+    //expSeries->setName("Experimental curve");
+    expSeries->setName(tr("Experimental curve"));
     QLineSeries *fittsSeries = new QLineSeries;
-    fittsSeries->setName("Theoritical curve");
+    //fittsSeries->setName("Theoritical curve");
+    fittsSeries->setName(tr("Theoritical curve"));
     QCategoryAxis *axis = new QCategoryAxis;
 
     QList<double> fittsValues;
@@ -203,7 +207,8 @@ void FittsController::calculateResult(){
     chart->setAxisX(axis,fittsSeries);
 
     QValueAxis *axisY = new QValueAxis;
-    axisY->setTitleText("temps (en ms)");
+    axisY->setTitleText(tr("time (in ms)"));
+    //axisY->setTitleText("temps (en ms)");
     chart->setAxisY(axisY,expSeries);
 
     //STATS
@@ -261,8 +266,10 @@ void FittsController::saveResults(){
     QTextStream flux(resultFile);
     flux.setCodec("UTF-8");
 
-    flux << "Experience results :\n\nMean difference = " << m_model->diffMoy << "\nStandard variation = "<< m_model->ecartType
-         <<  "\nStandard error = "<< m_model->erreurType << "\nConfidence itnerval = " << m_model->itc95 ;
+    flux << tr("Experience results :\n\nMean difference = ") << m_model->diffMoy << tr("\nStandard variation = ")<< m_model->ecartType
+             <<  tr("\nStandard error = ")<< m_model->erreurType << tr("\nConfidence interval = ") << m_model->itc95 ;
+    /*flux << "Experience results :\n\nMean difference = " << m_model->diffMoy << "\nStandard variation = "<< m_model->ecartType
+         <<  "\nStandard error = "<< m_model->erreurType << "\nConfidence itnerval = " << m_model->itc95 ;*/
     resultFile->close();
 }
 
@@ -280,7 +287,8 @@ void FittsController::finish() {
     qreal posX = getExpView()->m_scene->width() / 2;
     qreal posY = getExpView()->m_scene->height() / 2;
 
-    QLabel *endLabel = new QLabel("The experience is over !\nPlease click on the bottom right button\nto analyse your results !");
+    //QLabel *endLabel = new QLabel("The experience is over !\nPlease click on the bottom right button\nto analyse your results !");
+    QLabel *endLabel = new QLabel(tr("The experience is over !\nPlease click on the bottom right button\nto analyse your results !"));
     endLabel->setAlignment(Qt::AlignCenter);
     QString *style = new QString("background-color: rgb(232, 72, 85);color: rgb(255,255,255); font-size:50px;padding: 20px;");
     endLabel->setStyleSheet(*style);

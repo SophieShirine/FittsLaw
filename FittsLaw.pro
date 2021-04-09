@@ -19,7 +19,7 @@ SOURCES += \
     ./src/fittsmodel.cpp \
     ./src/mainview.cpp \
     ./src/resultsview.cpp \
-    main.cpp \
+    main.cpp
 
 FORMS += \
     ./gui/experienceview.ui \
@@ -38,4 +38,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resourceFile.qrc
+    resourceFile.qrc \
+    translations.qrc

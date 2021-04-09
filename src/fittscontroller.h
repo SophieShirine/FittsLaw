@@ -41,6 +41,7 @@ public slots:
 
     void saveResults();
 
+
 private:
     MainView *m_mainView;
     FittsModel *m_model;
