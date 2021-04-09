@@ -585,6 +585,9 @@ color: rgb(255, 255, 255);
             <height>100</height>
            </size>
           </property>
+          <property name="whatsThis">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;a et b are constants&lt;/p&gt;&lt;p&gt;D is the distance starting point to the center of the target&lt;/p&gt;&lt;p&gt;W is the width of a target&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgb(20, 34, 80);
 padding: 10px;
