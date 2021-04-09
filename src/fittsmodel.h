@@ -24,7 +24,7 @@ private:
 
     int targetLeft = 0;
     int nbTarget = 10;
-    int minSize = 10;
+    int minSize = 50;
     int maxSize = 150;
 
     double a = 2;

@@ -85,11 +85,18 @@ void FittsController::initGame(){
     if(this->m_model->maxSize >= this->getExpView()->m_graphicView->height() / 2)
         this->m_model->maxSize = this->getExpView()->m_graphicView->height() / 2;
 
+    //INFO LABEL
     qreal posX = scene->width() / 2;
     qreal posY = scene->height() / 2;
-    int size = 100;
 
-    scene->addEllipse(posX - (size / 2), posY - (size / 2), size, size, QPen(QColor("blue")),QBrush(QColor("blue")));
+    QLabel *startLabel = new QLabel("Click anywhere on the screen \nto start the simulation !");
+    startLabel->setAlignment(Qt::AlignCenter);
+    QString *style = new QString("background-color: rgb(232, 72, 85);color: rgb(255,255,255); font-size:50px;padding: 20px;");
+    startLabel->setStyleSheet(*style);
+    startLabel->adjustSize();
+    startLabel->move(posX-(startLabel->width()/2),posY-(startLabel->height()/2));
+
+    scene->addWidget(startLabel);
 }
 
 void FittsController::targetClicked(int x, int y) {
@@ -269,7 +276,19 @@ void FittsController::backToSettings() {
 }
 
 void FittsController::finish() {
+    //INFO LABEL
+    qreal posX = getExpView()->m_scene->width() / 2;
+    qreal posY = getExpView()->m_scene->height() / 2;
+
+    QLabel *endLabel = new QLabel("The experience is over !\nPlease click on the bottom right button\nto analyse your results !");
+    endLabel->setAlignment(Qt::AlignCenter);
+    QString *style = new QString("background-color: rgb(232, 72, 85);color: rgb(255,255,255); font-size:50px;padding: 20px;");
+    endLabel->setStyleSheet(*style);
+    endLabel->adjustSize();
+    endLabel->move(posX-(endLabel->width()/2),posY-(endLabel->height()/2));
+    getExpView()->m_scene->addWidget(endLabel);
+
+    //ENABLE THE RESULT BUTTON AND DISABLE THE SCENE
     this->getExpView()->m_graphicView->setEnabled(false);
-    //this->getExpView()->m_graphicView->setBackgroundBrush(QBrush(Qt::white));
     this->getExpView()->m_resultsBtn->setEnabled(true);
 }
