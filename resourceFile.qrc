@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>ResourceFile/formula.png</file>
+        <file>ResourceFile/windowIcon.png</file>
+        <file>ResourceFile/export.png</file>
+        <file>ResourceFile/goback.png</file>
+        <file>ResourceFile/restart.png</file>
+        <file>ResourceFile/start.png</file>
+        <file>ResourceFile/close.png</file>
+        <file>ResourceFile/stats.png</file>
+        <file>ResourceFile/targets.png</file>
+    </qresource>
+</RCC>
