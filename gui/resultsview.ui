@@ -465,7 +465,7 @@ background-color:qlineargradient(spread:reflect, x1:0, y1:0.523, x2:0.473, y2:0.
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout">
+    <layout class="QHBoxLayout" name="exportLayout">
      <property name="spacing">
       <number>7</number>
      </property>

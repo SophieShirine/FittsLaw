@@ -10,6 +10,9 @@ class FittsController;
 
 class MainView;
 
+/*
+ * Model of the experience. It hosts all the value used during the experiment.
+ */
 class FittsModel : public QObject
 {
     Q_OBJECT

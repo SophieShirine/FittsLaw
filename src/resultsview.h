@@ -18,6 +18,10 @@ namespace Ui {
 class ResultsView;
 }
 
+/*
+ * ResultsView class, that show the results as a graphic and statistics.
+ * It allows the user to export their results.
+ */
 class ResultsView : public QDialog
 {
     Q_OBJECT

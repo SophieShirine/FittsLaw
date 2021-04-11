@@ -15,6 +15,10 @@ class ResultsView;
 
 namespace Ui { class MainWindow; }
 
+/*
+ * MainView of the program. It show the settings and allows the user to naviguate through the
+ * other views.
+ */
 class MainView : public QMainWindow
 {
     Q_OBJECT
@@ -36,7 +40,6 @@ private:
     QLabel* m_nbTargetLabel;
     QLabel* m_minSizeLabel;
     QLabel* m_maxSizeLabel;
-
     QSlider *m_minSizeSlider;
     QSlider *m_maxSizeSlider;
 

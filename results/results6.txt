@@ -1,6 +1,0 @@
-Résultats de l'expérience :
-Différence moyenne =
-6598.66Ecart-type =
-827.532Erreur-type =
-413.766Intervalle de confiance =
-827.532

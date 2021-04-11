@@ -18,6 +18,9 @@ namespace Ui {
 class ExperienceView;
 }
 
+/*
+ * ExperienceView class, that show the experience window in full-screen.
+ */
 class ExperienceView : public QDialog
 {
     Q_OBJECT
@@ -30,6 +33,7 @@ public slots:
 
 private:
     Ui::ExperienceView *ui;
+
     ResultsView *m_resultsView;
     FittsController *m_controller;
 
@@ -37,7 +41,6 @@ private:
     QGraphicsScene *m_scene;
 
     QLabel *m_nbTargetsLeft;
-    QPushButton *m_resultsBtn;
 
     friend ResultsView;
     friend FittsController;

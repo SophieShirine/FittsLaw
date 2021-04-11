@@ -1,9 +1,8 @@
 #include "mainview.h"
 #include "ui_mainView.h"
 
-/*
- * main window class, that opens at the beginning of the program
- * allows to set up the parameters for the experience and launch it
+/**
+ * @brief constructor
 */
 
 MainView::MainView(FittsModel *model, QWidget *parent)
@@ -26,9 +25,7 @@ MainView::MainView(FittsModel *model, QWidget *parent)
 
     m_aValueLabel->setText(QString::number(m_model->a));
 
-    //ADD A SIGNAL TO TELL THE CONTROLLER THAT THE EXPERIENCE STARTS
     QObject::connect(ui->startBtn,SIGNAL(clicked()),m_controller,SLOT(startSimulation()));
-
     QObject::connect(ui->aValue,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateAValue(int)));
     QObject::connect(ui->bValue,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateBValue(int)));
     QObject::connect(ui->nbTarget,SIGNAL(valueChanged(int)),this->m_controller,SLOT(updateNbTarget(int)));
@@ -40,6 +37,9 @@ MainView::MainView(FittsModel *model, QWidget *parent)
     show();
 }
 
+/**
+ * @brief destructor
+ */
 MainView::~MainView()
 {
     delete ui;

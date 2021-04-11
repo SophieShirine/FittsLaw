@@ -4,6 +4,9 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 
+/*
+ * GraphicWidget class, that handles the user clics on the window.
+ */
 class GraphicWidget : public QGraphicsView
 {
     Q_OBJECT

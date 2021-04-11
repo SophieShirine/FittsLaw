@@ -11,6 +11,10 @@ class MainView;
 class ExperienceView;
 class ResultsView;
 
+/*
+ * Class of the controller of the program. It has all of the important functions
+ * that allows to control both the views and the model.
+ */
 class FittsController : public QObject
 {
     Q_OBJECT
@@ -21,24 +25,20 @@ public:
     ExperienceView* getExpView();
     ResultsView* getResView();
 
-    //void start(); A VOIR SI BESOIN
-
 signals:
 
 public slots:
 
-    void updateAValue(int x); //FAIT
-    void updateBValue(int x); //FAIT
-    void updateNbTarget(int x); //FAIT
-    void updateMinSize(int x); //FAIT
-    void updateMaxSize(int x); //FAIT
+    void updateAValue(int x);
+    void updateBValue(int x);
+    void updateNbTarget(int x);
+    void updateMinSize(int x);
+    void updateMaxSize(int x);
 
-    void quit(); //FAIT
-    void startSimulation(); //FAIT
-    void backToSettings(); //FAIT
-    void resultClicked(); //A FIGNOLER
-    void targetClicked(int x, int y); //FAIT
-
+    void quit();
+    void startSimulation();
+    void backToSettings();
+    void targetClicked(int x, int y);
     void saveResults();
 
 
@@ -47,11 +47,10 @@ private:
     FittsModel *m_model;
     QElapsedTimer *m_timer;
 
-    void initGame(); //FAIT
-    void finish(); //FAIT
-    void nextTarget(); //FAIT
-
-    void calculateResult(); //FAIT
+    void initGame();
+    void finish();
+    void nextTarget();
+    void calculateResult();
 
     friend FittsModel;
 };

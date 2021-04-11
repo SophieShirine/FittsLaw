@@ -2,6 +2,9 @@
 #include "ui_experienceview.h"
 #include <iostream>
 
+/*
+ * Constructor
+ */
 ExperienceView::ExperienceView(FittsController *controller, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ExperienceView)
@@ -11,9 +14,8 @@ ExperienceView::ExperienceView(FittsController *controller, QWidget *parent) :
     m_controller = controller;
     m_resultsView = new ResultsView(m_controller,this);
     m_nbTargetsLeft = ui->nbTargetLeftLabel;
-    m_resultsBtn = ui->resultsButton;
 
-    /////GRAPHIC WIDGET SET UP
+    /////GRAPHIC WIDGET SET-UP
     m_graphicView = new GraphicWidget();
     m_graphicView->setBackgroundBrush(QBrush(Qt::white));
     ui->GraphicLayout->addWidget(m_graphicView);
@@ -26,14 +28,11 @@ ExperienceView::ExperienceView(FittsController *controller, QWidget *parent) :
     m_scene->setSceneRect(0,0,m_graphicView->width(),300);
 
     /////SIGNALS CONNECTIONS
-    QObject::connect(ui->resultsButton,SIGNAL(clicked()),m_controller,SLOT(resultClicked()));
     QObject::connect(ui->leaveBtn,SIGNAL(clicked()),this,SLOT(close()));
-    connect(m_graphicView, SIGNAL(mouseClicked(int,int)), m_controller, SLOT(targetClicked(int,int)));
+    QObject::connect(m_graphicView, SIGNAL(mouseClicked(int,int)), m_controller, SLOT(targetClicked(int,int)));
 }
 
-
-
-ExperienceView::~ExperienceView()
-{
-    delete ui;
-}
+/*
+ * Destructor
+ */
+ExperienceView::~ExperienceView(){delete ui;}

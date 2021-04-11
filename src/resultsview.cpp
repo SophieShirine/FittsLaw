@@ -1,6 +1,9 @@
 #include "resultsview.h"
 #include "ui_resultsview.h"
 
+/**
+ * @brief constructor
+*/
 
 ResultsView::ResultsView(FittsController *controller, QWidget *parent) :
     QDialog(parent),
@@ -27,12 +30,19 @@ ResultsView::ResultsView(FittsController *controller, QWidget *parent) :
 
 }
 
-
+/**
+ * @brief function that launches the fadeInAnimation to allow the results view to
+ * appear slowly
+ */
 void ResultsView::appearing(){
     showFullScreen();
     fadeInAnimation->start();
 }
 
+/**
+ * @brief display the results previously calculated by the controller
+ * @param mean differance, standard deviation, standard error and confidence interval - double
+ */
 void ResultsView::displayResults(double meanDiff, double sDev, double sErr, double itc) {
     ui->mDiff->setText(QString::number(meanDiff));
     ui->cInt->setText(QString::number(itc));
@@ -40,7 +50,7 @@ void ResultsView::displayResults(double meanDiff, double sDev, double sErr, doub
     ui->sErr->setText(QString::number(sErr));
 }
 
-ResultsView::~ResultsView()
-{
-    delete ui;
-}
+/**
+ * @brief destructor
+ */
+ResultsView::~ResultsView(){delete ui;}
